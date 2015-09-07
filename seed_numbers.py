@@ -17,9 +17,9 @@ def seed_numbers_w_datetime():
 		print random_num
 		print date_time
 		stats_table_values = Stats(number=random_num, date_time=this_date_time)
+		db.session.add(stats_table_values)
+	db.session.commit()
 	
-	# db.session.add(number)
-
 if __name__	== '__main__':
 	connect_to_db(app)
 	print "Connected to DB."

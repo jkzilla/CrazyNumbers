@@ -1,8 +1,12 @@
+"""Model for CrazyNumbers"""
+
 from flask_sqlalchemy import SQLAlchemy
 
-# Connects to db
+# Connects to SQLite3 db
+
 db = SQLAlchemy()
 
+# Defines database model
 class Stats(db.Model):
 	"""
 				Crazy Numbers
@@ -20,6 +24,10 @@ class Stats(db.Model):
 	number = db.Column(db.Integer, nullable=False)
 	date_time = db.Column(db.DateTime)
 
+	def __repr__(self):
+		"""Representations of printed values"""
+
+		return "<Stats number_id=%s number=%s date_time=%s>" % (self.number_id, self.number, self.date_time)
 
 	# Helper functions
 
