@@ -1,9 +1,11 @@
 """Model for CrazyNumbers"""
-
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from server import app
+
+app = Flask(__name__)
 
 # Connects to SQLite3 db
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///numbers.db'
 
 db = SQLAlchemy(app)
 
@@ -21,16 +23,20 @@ class Stats(db.Model):
 
 	__tablename__ = "numbers"
 
-	number_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+	id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 	number = db.Column(db.Integer, nullable=False)
 	date_time = db.Column(db.DateTime)
+
+	def __init__(self, number, date_time):
+		self.number = number
+		self.date_time = date_time
 
 	def __repr__(self):
 		"""Representations of printed values"""
 
 		return "<Stats number_id=%s number=%s date_time=%s>" % (self.number_id, self.number, self.date_time)
 
-	# Helper functions
+# Helper functions
 
 def connect_to_db(app):
 	"""Connects the database to the CrazyNumbers Flask application."""
@@ -42,6 +48,6 @@ def connect_to_db(app):
 
 if __name__ == "__main__":
 	# This allows us to work with the database directly from our server.
-
+	from server import app
 	connect_to_db(app)
 	print "Connected to DB."

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, flash, session, jsonify, json
+from flask import Flask, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, db, Stats
 from jinja2 import StrictUndefined
@@ -6,9 +6,9 @@ from jinja2 import StrictUndefined
 app = Flask(__name__)
 
 app.secret_key = "ABC"
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///numbers.db'
 app.jinja_env.undefined = StrictUndefined
-
+db = SQLAlchemy(app)
 @app.route('/')
 def index():
 	"""Dashboard"""
