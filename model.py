@@ -5,9 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 # Connects to SQLite3 db
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///numbers.db'
 
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 # Defines database model
 class Stats(db.Model):
