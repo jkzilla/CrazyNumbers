@@ -20,10 +20,13 @@ def seed_numbers_w_datetime():
 	# After 300 values, we commit to db
 	db.session.commit()
 
-if __name__	== '__main__':
-
+def connect_to_db():
 	connect_to_db(app)
-	print "Connected to DB."
-
 	db.create_all()
+
+def main():
+	connect_to_db()
 	seed_numbers_w_datetime()
+
+if __name__	== '__main__':
+	main()
