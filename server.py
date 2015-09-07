@@ -14,3 +14,12 @@ def index():
 	"""Dashboard"""
 
 	return render_template("/dashboard.html")
+
+if __name__ == '__main__':
+	app.debug = True
+
+	connect_to_db(app)
+
+	DebugToolbarExtension(app)
+
+	app.run()
