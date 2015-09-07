@@ -16,7 +16,7 @@ def seed_numbers_w_datetime():
 		date_time = datetime.dateime.now()
 		print random_num
 		print date_time
-	stats_table_values = Stats(number=random_num, date_time=this_date_time)
+		stats_table_values = Stats(number=random_num, date_time=this_date_time)
 	
 	# db.session.add(number)
 

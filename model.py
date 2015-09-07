@@ -23,17 +23,17 @@ class Stats(db.Model):
 
 	# Helper functions
 
-	def connect_to_db(app):
-		"""Connects the database to the CrazyNumbers Flask application."""
+def connect_to_db(app):
+	"""Connects the database to the CrazyNumbers Flask application."""
 
-		# Configure to use our SQLite database
-		app.config['SQLALCHMY_DATABASE_URI'] = 'sqlite:///crazynumbers.db'
-		db.app = app
-		db.init_app(app)
+	# Configure to use our SQLite database
+	app.config['SQLALCHMY_DATABASE_URI'] = 'sqlite:///crazynumbers.db'
+	db.app = app
+	db.init_app(app)
 
-	if __name__ == "__main__":
-		# This allows us to work with the database directly from our server.
+if __name__ == "__main__":
+	# This allows us to work with the database directly from our server.
 
-		from server import app
-		connect_to_db(app)
-		print "Connected to DB."
+	from server import app
+	connect_to_db(app)
+	print "Connected to DB."
