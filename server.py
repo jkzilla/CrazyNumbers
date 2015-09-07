@@ -13,4 +13,4 @@ app.jinja_env.undefined = StrictUndefined
 def index():
 	"""Dashboard"""
 
-	return render_template()
+	return render_template("/dashboard.html")
