@@ -12,8 +12,8 @@ def seed_numbers_w_datetime():
 
 	for number in xrange(0, 300):
 		print xrange(0, 300)
-		random_num = random.randomint(0,100)
-		date_time = datetime.dateime.now()
+		random_num = random.randint(0,100)
+		this_date_time = datetime.datetime.now()
 		print random_num
 		print date_time
 		stats_table_values = Stats(number=random_num, date_time=this_date_time)
