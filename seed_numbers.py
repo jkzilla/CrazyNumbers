@@ -1,10 +1,14 @@
 from model import Stats, db, connect_to_db
+from server import app
+
 import random
 import datetime
 
 DB_URI = "http:///crazynumbers.db"
 def seed_numbers_w_datetime():
-	"""This function generates 300 random numbers and 300 random DateTime values to seed into the Stats table in our crazynumbers database."""
+	"""This function generates 300 random numbers and 300 random DateTime values and loads values into the Stats table in our crazynumbers database."""
+	
+	print "Generating"
 
 	for number in xrange(0-300):
 		print xrange(0-300)
@@ -17,7 +21,8 @@ def seed_numbers_w_datetime():
 	# db.session.add(number)
 
 if __name__	== '__main__':
-	from server import app
 	connect_to_db(app)
 	print "Connected to DB."
-	seed_numbers.py
+
+	db.create_all()
+	seed_numbers_w_datetime()
