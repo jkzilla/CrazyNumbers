@@ -41,6 +41,7 @@ def connect_to_db(app):
 	from sqlalchemy import create_engine
 	# Configure to use our SQLite database
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///numbers.db'
+	app.config['SQLALCHEMY_ECHO'] = True
 	db.app = app
 	db.init_app(app)
 	db.create_all()
