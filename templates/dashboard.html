@@ -3,7 +3,9 @@
 {% block content %}
 <h1>All About CrazyNumbers</h1>
 <h2>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h2>
-
-<p>{{data}}</p>
-
+	<ul>
+	{% for i in data %}
+		<li>{{ i.id }}, {{ i.number }}, {{ i.date_time }}</li>
+	{% endfor %}
+	</ul>
 {% endblock %}
