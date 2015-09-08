@@ -51,7 +51,7 @@ var dateTime = {{ date_time }}
 console.log(date_time)
 var number = {{ number }}
 
-var vis = d3.select("#visualisation"), 
+var vis = d3.select("#chart2"), 
 	WIDTH = 500,
     HEIGHT = 200,
     MARGINS = {
@@ -115,6 +115,10 @@ vis.append("svg:path")
 	.attr("stroke-width", 2)
 	.attr("fill", "none");
 }
+
+// Chart3
+
+
 </script>
 {% endblock %}
 
