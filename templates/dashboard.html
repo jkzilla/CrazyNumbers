@@ -3,9 +3,28 @@
 {% block content %}
 <h1>All About CrazyNumbers</h1>
 <h2>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h2>
+<!-- number: circle, DateTime: x-axis -->
 	<ul>
 	{% for i in data %}
 		<li>{{ i.id }}, {{ i.number }}, {{ i.date_time }}</li>
 	{% endfor %}
 	</ul>
+<div class="chart1"></div>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8">
+	var data = []
+	// select the chart container using class selector
+	var chart = d3.select(".chart1");
+	// initiate data join
+	var bar =  chart.selectAll("div");
+	// join data to selection
+	var barUpdate = bar.data(data);
+	var barEnter = barUpdate.enter().append("div");
+	// set the width of each new bar as a multiple of associated data value, d
+	barEnter.style("width", function(d) { return d * 10 + "px"; });	
+	barEnter.text(function(d) { return d; });
+
+	var x = d3.scale.linear()
+		.domain('{{ ')
+</script>
 {% endblock %}
+
