@@ -1,8 +1,10 @@
+/*font for web app*/
 * {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.chart div {
+/*chart1 css*/
+.chart1 div {
 	font: 10px;
 	background-color: #c8ccc1;
 	text-align: right;
@@ -11,13 +13,51 @@
 	color: white;
 }
 
-.chart rect {
+.chart1 rect {
   fill: #c8ccc1;
 }
 
-.chart text {
+.chart1 text {
   fill: white;
   font: 10px sans-serif;
   text-anchor: end;
 }
 
+/*chart2 css*/
+#chart2 {
+	margin-left: -40px;
+	heigh: 500px;
+}
+
+#chart2 text {
+	font: 10px sans-serif;
+}
+
+.dot {
+	stroke: #000;
+}
+
+.axis path, .axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendinger: crispEdges;
+}
+
+.label {
+	fill: #777;
+}
+
+.year.label {
+	font: 500 196px "Helvetica Neue";
+	fill: #ddd;
+}
+
+.year.label.active {
+	fill:#aaa;
+}
+
+.overlay {
+	fill: none;
+	pointer-evernts: all;
+	cursor: ew-resize;
+}
