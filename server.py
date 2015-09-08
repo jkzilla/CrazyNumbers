@@ -13,8 +13,8 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/')
 def index():
 	"""Dashboard"""
-
-	return render_template("/dashboard.html")
+	data = Stats.query.all()
+	return render_template("/dashboard.html", data=data)
 
 if __name__ == '__main__':
 	app.debug = True
