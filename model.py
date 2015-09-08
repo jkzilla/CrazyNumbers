@@ -32,7 +32,7 @@ class Stats(db.Model):
 	def __repr__(self):
 		"""Representations of printed values"""
 
-		return "<Stats number_id=%s number=%s date_time=%s>" % (self.number_id, self.number, self.date_time)
+		return "<Stats id=%s number=%s date_time=%s>" % (self.id, self.number, self.date_time)
 
 # Helper functions
 

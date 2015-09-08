@@ -14,6 +14,9 @@ app.jinja_env.undefined = StrictUndefined
 def index():
 	"""Dashboard"""
 	data = Stats.query.all()
+	# print type(data) this is class model.Stats
+
+
 	return render_template("/dashboard.html", data=data)
 
 if __name__ == '__main__':
