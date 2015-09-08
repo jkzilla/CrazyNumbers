@@ -24,40 +24,21 @@
 }
 
 /*chart2 css*/
-#chart2 {
-	margin-left: -40px;
-	heigh: 500px;
-}
-
-#chart2 text {
-	font: 10px sans-serif;
-}
-
-.dot {
-	stroke: #000;
-}
-
 .axis path, .axis line {
-	fill: none;
-	stroke: #000;
-	shape-rendinger: crispEdges;
+    fill: none;
+    stroke: #777;
+	shape-rendering: crispEdges;
+}
+        
+.axis text {
+    font-family: 'Arial';
+    font-size: 13px;
 }
 
-.label {
-	fill: #777;
+.tick {
+    stroke-dasharray: 1, 2;
 }
-
-.year.label {
-	font: 500 196px "Helvetica Neue";
-	fill: #ddd;
+.bar {
+    fill: FireBrick;
 }
-
-.year.label.active {
-	fill:#aaa;
-}
-
-.overlay {
-	fill: none;
-	pointer-evernts: all;
-	cursor: ew-resize;
-}
+        
