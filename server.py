@@ -14,8 +14,13 @@ app.jinja_env.undefined = StrictUndefined
 def index():
 	"""Dashboard"""
 	data = Stats.query.all()
+	data_dict = {}
 	for item in data:
-		print item.number
+		key = str(item.id)
+		value = [item.number, item.date_time]
+		data_dict[key] = value 
+		# print item.number
+	print len(data_dict)
 	# print type(data) this is class model.Stats
 	date_time_array = db.session.query(Stats.number).all()
 	print type(date_time_array)
