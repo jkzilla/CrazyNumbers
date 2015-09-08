@@ -14,9 +14,13 @@ app.jinja_env.undefined = StrictUndefined
 def index():
 	"""Dashboard"""
 	data = Stats.query.all()
+	for item in data:
+		print item.number
 	# print type(data) this is class model.Stats
-
-
+	date_time_array = db.session.query(Stats.number).all()
+	print type(date_time_array)
+	# for number in date_time_array:
+	# 	print number
 	return render_template("/dashboard.html", data=data)
 
 if __name__ == '__main__':
