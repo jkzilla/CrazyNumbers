@@ -38,13 +38,10 @@ class Stats(db.Model):
 
 def connect_to_db(app):
 	"""Connects the database to the CrazyNumbers Flask application."""
-	from sqlalchemy import create_engine
 	# Configure to use our SQLite database
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///numbers.db'
-	app.config['SQLALCHEMY_ECHO'] = True
 	db.app = app
 	db.init_app(app)
-	db.create_all()
 
 if __name__ == "__main__":
 	# This allows us to work with the database directly from our server.
