@@ -10,3 +10,14 @@
 	margin: 1px;
 	color: white;
 }
+
+.chart rect {
+  fill: #c8ccc1;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+

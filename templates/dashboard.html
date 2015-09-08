@@ -3,14 +3,23 @@
 {% block content %}
 <h1>All About CrazyNumbers</h1>
 <h2>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h2>
-<!-- number: circle, DateTime: x-axis -->
-	<ul>
+<!-- 	<ul>
 	{% for i in data %}
 		<li>{{ i.id }}, {{ i.number }}, {{ i.date_time }}</li>
 	{% endfor %}
 	</ul>
-<div class="chart1"></div>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8">
+
+ <dl>
+ {% for key, value in data_json.iteritems() %}
+ 	{{ key|e }}
+ 	{{ value|e }}
+ {% endfor %}
+ </dl>
+ --> 
+{{ data_json[key] }}
+ <svg class="chart1"></svg>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
 	var data = []
 	// select the chart container using class selector
 	var chart = d3.select(".chart1");
@@ -24,7 +33,7 @@
 	barEnter.text(function(d) { return d; });
 
 	var x = d3.scale.linear()
-		.domain('{{ data }} ')
+		.domain()
 </script>
 {% endblock %}
 
