@@ -21,16 +21,16 @@ def index():
 	for item in data:
 		py_date_time = item.date_time
 		js_date_time_format = json.dumps(py_date_time.isoformat())
-		print type(js_date_time_format)
+		print js_date_time_format
 		key = int(item.id)
-		value = [item.number, str(item.date_time)]
+		value = [int(item.number), js_date_time_format]
 		data_dict[key] = value 
 		y_axis_number.append(int(item.number))
 		x_axis_date_time.append(js_date_time_format)
 		# print item.number
 	# print x_axis_date_time
 	# print y_axis_number
-	json_response = json.dumps(data_dict)
+	json_response = js_date_time_format
 	# print type(json_response)
 	# data = {}
 	# datasets_dict = {}

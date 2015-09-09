@@ -12,13 +12,9 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 // Chart1
-	var array_dateTime = {{ date_time }}
-	var first_dateTime_item = array_dateTime[0]
-	console.log(first_dateTime_item)
-	// var d = new	Date.parse({{ date_time }}.toISOString())
-
-   	// var d= new Date(parseInt(jsonDateString.replace('&#39;&#34;', '')));
-	var dateTime = d
+	{% for item in date_time %}
+	var dateTime = new Date({{ item|safe }})
+	{% endfor %}
 	console.log(dateTime)
 	var number = {{ number }}
 
