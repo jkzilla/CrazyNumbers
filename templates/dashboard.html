@@ -11,10 +11,12 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 // Chart1
+	var dateTime_array = []
 	{% for item in date_time %}
 	var dateTime = new Date({{ item|safe }})
+	dateTime_array.push(dateTime)
 	{% endfor %}
-	// console.log(dateTime)
+	console.log(dateTime_array)
 	var number = {{ number }}
 
 	var width = 400,
