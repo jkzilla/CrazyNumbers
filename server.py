@@ -20,9 +20,8 @@ def index():
 	y_axis_number = []
 	for item in data:
 		py_date_time = item.date_time
-		# js_date_time_format = json.dumps(py_date_time.isoformat())
-		js_date_time_format = py_date_time.timetuple()
-		print js_date_time_format
+		js_date_time_format = json.dumps(py_date_time.isoformat())
+		print type(js_date_time_format)
 		key = int(item.id)
 		value = [item.number, str(item.date_time)]
 		data_dict[key] = value 
