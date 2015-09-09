@@ -4,6 +4,7 @@ from model import connect_to_db, db, Stats
 from jinja2 import StrictUndefined
 from sqlalchemy import func 
 import json
+import time
 
 app = Flask(__name__)
 
@@ -18,11 +19,14 @@ def index():
 	x_axis_date_time = []
 	y_axis_number = []
 	for item in data:
+		py_date_time = item.date_time
+		js_date_time_format = int(time.mktime(py_date_time.timetuple())) * 1000
+		print js_date_time_format
 		key = int(item.id)
 		value = [item.number, str(item.date_time)]
 		data_dict[key] = value 
-		y_axis_number.append(str(item.number))
-		x_axis_date_time.append(item.date_time)
+		y_axis_number.append(int(item.number))
+		x_axis_date_time.append(js_date_time_format)
 		# print item.number
 	# print x_axis_date_time
 	# print y_axis_number
