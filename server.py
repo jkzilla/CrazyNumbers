@@ -32,20 +32,20 @@ def index():
 	# print y_axis_number
 	json_response = json.dumps(data_dict)
 	# print type(json_response)
-	data = {}
-	datasets_dict = {}
-	datasets_dict['label'] = "Crazy Numbers"
-	datasets_dict['fillColor'] = "rgba(220,220,220,0.5)"
-	datasets_dict['strokeColor'] = "rgba(220,220,220,0.8)"
-	datasets_dict['highlightFill'] = "rgba(220,220,220,0.75)"
-	datasets_dict['highlightStroke'] = "rgba(220,220,220,1)"
-	datasets_dict['data'] = y_axis_number
-	data['labels'] = js_date_time_format
-	data['datasets'] = [datasets_dict]
+	# data = {}
+	# datasets_dict = {}
+	# datasets_dict['label'] = "Crazy Numbers"
+	# datasets_dict['fillColor'] = "rgba(220,220,220,0.5)"
+	# datasets_dict['strokeColor'] = "rgba(220,220,220,0.8)"
+	# datasets_dict['highlightFill'] = "rgba(220,220,220,0.75)"
+	# datasets_dict['highlightStroke'] = "rgba(220,220,220,1)"
+	# datasets_dict['data'] = y_axis_number
+	# data['labels'] = js_date_time_format
+	# data['datasets'] = [datasets_dict]
  
 
-	list_of_dict.append(data)
-	print list_of_dict 	
+	# list_of_dict.append(data)
+	# print list_of_dict 	
 
 	return render_template("/dashboard.html", data_json=json_response, date_time=x_axis_date_time, number=y_axis_number)
 
