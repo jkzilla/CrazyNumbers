@@ -12,14 +12,8 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 // Chart1
-	typeDateTime = typeof {{ date_time }} 
-	console.log(typeDateTime);
 	jsonDateString = {{ date_time }}
-	// function parseJsonDate(jsonDateString){
- //   		return new Date(parseInt(jsonDateString.replace('/Date(', '')));
-	// }
-
-	var d = new Date({{ date_time }})
+   	var d= new Date(parseInt(jsonDateString.replace('&#39;&#34;', '')));
 	var dateTime = d
 	console.log(dateTime)
 	var number = {{ number }}
