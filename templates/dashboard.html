@@ -3,9 +3,8 @@
 {% block content %}
 <h1>All About CrazyNumbers</h1>
 <h4>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h4>
-{{ date_time }}
 
-<svg class="chart1"></svg>
+<svg id="chart1"></svg>
 <svg id="chart2" width="500" height="200"></svg>
 <canvas id="chart3" width="750" height="auto"></canvas>
 
@@ -15,14 +14,14 @@
 	{% for item in date_time %}
 	var dateTime = new Date({{ item|safe }})
 	{% endfor %}
-	console.log(dateTime)
+	// console.log(dateTime)
 	var number = {{ number }}
 
 	var width = 400,
 	barHeight = 20;
 
 	var x = d3.scale.linear()
-		.domain([0, d2.max(number)])
+		.domain([0, d3.max(number)])
 		.range([0, width]);
 
 	// select the chart container using class selector
@@ -31,8 +30,8 @@
 		.attr("height", barHeight * number.length);
 
 	// initiate data join.
-	var bar =  chart.selectAll(".chart1");
-		data(number)
+	var bar =  chart.selectAll("#chart1")
+		.data(number)
 		.enter().append(".chart1")
 		.attr("transform", function(d, i) { return "translate(0," + barHeight + ")"; });
 
@@ -51,10 +50,11 @@ InitChart();
 
 function InitChart() {
 
-var dateTime = d
-console.log(dateTime)
+var d = dateTime
+console.log(d)
 var number = {{ number }}
 
+var lineData = [{x:1, y:2}]
 var vis = d3.select("#chart2"), 
 	WIDTH = 500,
     HEIGHT = 200,
