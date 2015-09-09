@@ -53,10 +53,22 @@ function InitChart() {
 var d = dateTime
 console.log(d)
 var number = {{ number }}
-
+var obj = {}
 var dict_constr = function(d, number){
-	for
+	console.log(d.length, number.length)
+	i = 0;
+	j = 0;
+	for (i; i < d.length; i++) {
+		console.log(d[i]);
+
+		for (j; j < number.length; i++){
+			console.log(number[j]);	
+			obj[d[i]] = number[j];
+		}
+	}
 }
+dict_constr(d, number)
+console.log(obj)
 var lineData = [{x:1, y:2}]
 var vis = d3.select("#chart2"), 
 	WIDTH = 500,
