@@ -11,7 +11,8 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 // Chart1
-	var dateTime = {{ date_time }}
+	var d = new Date({{ date_time }})
+	var dateTime = d
 	console.log(dateTime)
 	var number = {{ number }}
 
@@ -48,7 +49,7 @@ InitChart();
 
 function InitChart() {
 
-var dateTime = {{ date_time }}
+var dateTime = d
 console.log(dateTime)
 var number = {{ number }}
 
