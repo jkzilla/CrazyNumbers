@@ -12,8 +12,9 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 // Chart1
-	jsonDateString = {{ date_time }}
-   	var d= new Date(parseInt(jsonDateString.replace('&#39;&#34;', '')));
+	var d = new	Date.parse({{ number }}.toISOString())
+
+   	// var d= new Date(parseInt(jsonDateString.replace('&#39;&#34;', '')));
 	var dateTime = d
 	console.log(dateTime)
 	var number = {{ number }}
