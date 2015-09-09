@@ -20,7 +20,7 @@ def index():
 	y_axis_number = []
 	for item in data:
 		py_date_time = item.date_time
-		js_date_time_format = int(time.mktime(py_date_time.timetuple())) * 1000
+		js_date_time_format = json.dumps(py_date_time.isoformat())
 		print js_date_time_format
 		key = int(item.id)
 		value = [item.number, str(item.date_time)]
