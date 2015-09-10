@@ -4,7 +4,9 @@
 <h1>All About CrazyNumbers</h1>
 <h4>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h4>
 
-<svg id="chart1"></svg>
+<svg id="chart1"> 
+
+	</svg>
 <svg id="chart2" width="500" height="200"></svg>
 <canvas id="chart3" width="750" height="auto"></canvas>
 
@@ -12,15 +14,19 @@
 <script>
 	
 // Chart1
+// This dateTimeArray holds date and time information in the d3 UTC time format. 
 	var dateTimeArray = [];
+// This numberArray holds all 300 of our integers.
 	var numberArray = {{ number }};
-	
+// Here we pass date_time as an array to the frontend Javascript object and save it in a d3 time format.
 	{% for item in date_time %}
 	var dateTime = new Date({{ item|safe }});
-	dateTimeArray.push(dateTime);
+	var isoDateTime = d3.time.format.utc(dateTime);
+	dateTimeArray.push(isoDateTime);
 	{% endfor %}
 	// console.log(dateTime_array)
 	// console.log(numberArray);
+// numberDict holds the frequency that each number appears in the numberArray object.
 	function makeDict(numberArray){
 		numberDict = {},
 		i=0;
@@ -30,32 +36,31 @@
 			var numberItem = numberArray[i];
 			numberDict[numberItem] = numberDict[numberItem] || 0;
 			numberDict[numberItem]++;
-
-			// for (j; j < numberArray.length; i++){
-			// 	console.log(numberArray[j]);	
-			// 	numberDict["numberArray[i]"] = numberArray[j];
-			// 	}
 			}
 		return numberDict
 		}
+// Here we call the makeDict function
 	makeDict(numberArray)
-	console.log(numberDict)
-	var width = 400,
-	barHeight = 20;
+	// console.log(numberDict)
+// Width and barHeight 
+	var height = 200,
+	width = 400,
+	barWidth = 30,
+	barOffset = 20;
 
 	var x = d3.scale.linear()
 		.domain([0, d3.max(numberArray)])
 		.range([0, width]);
 
 	// select the chart container using class selector
-	var chart = d3.select(".chart1")
+	var chart = d3.select("#chart1")
 		.attr("width", width)
-		.attr("height", barHeight * number.length);
+		.attr("height", barHeight * numberArray.length);
 
 	// initiate data join.
 	var bar =  chart.selectAll("#chart1")
-		.selectAll(".chart1")
-			.data(number)
+		.selectAll("#chart1")
+			.data(numberArray)
 		.enter().append("#chart1")
 		.attr("transform", function(d, i) { return "translate(0," + barHeight + ")"; });
 
