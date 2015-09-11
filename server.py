@@ -39,7 +39,7 @@ def index():
 	
 	chart_js3_data = {}
 	print type(chart_js_date_time_labels[0])
-	data['labels'] = chart_js_date_time_labels
+	chart_js3_data['labels'] = chart_js_date_time_labels
 	# print data['labels']
 	datasets_dict = {}
 	datasets_dict['label'] = "Crazy Numbers"
@@ -48,7 +48,7 @@ def index():
 	datasets_dict['highlightFill'] = "rgba(220,220,220,0.75)"
 	datasets_dict['highlightStroke'] = "rgba(220,220,220,1)"
 	datasets_dict['data'] = y_axis_number
-	data['datasets'] = [datasets_dict]
+	chart_js3_data['datasets'] = [datasets_dict]
  
 
 	# list_of_dict.append(data)

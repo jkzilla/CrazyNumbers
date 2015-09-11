@@ -170,6 +170,10 @@
 
 // // Chart3
 
+	var ctx = document.getElementById("chart3").getContext("2d");
+
+	var chart_js3_data = {{ chart_js3_data | tojson | safe }};
+	var myNewChart = new Chart(ctx).Bar(chart_js3_data);
 // // Chart4
 </script>
 {% endblock %}
