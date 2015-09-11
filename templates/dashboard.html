@@ -4,14 +4,21 @@
 <h1>All About CrazyNumbers</h1>
 <h4>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h4>
 
+<canvas id="chart3" width="10000" height="auto"></canvas>
+
 <svg id="chart1"> 
 
 	</svg>
 <svg id="chart2" width="500" height="200"></svg>
-<canvas id="chart3" width="750" height="auto"></canvas>
 
 <script>
 	
+// // Chart3
+
+	var ctx = document.getElementById("chart3").getContext("2d");
+
+	var chart_js3_data = {{ chart_js3_data | tojson | safe }};
+	var myNewChart = new Chart(ctx).Bar(chart_js3_data);
 // Chart1
 // This dateTimeArray holds date and time information in the d3 UTC time format. 
 	var dateTimeArray = [];
@@ -168,12 +175,6 @@
 // 	.attr("fill", "none");
 // }
 
-// // Chart3
-
-	var ctx = document.getElementById("chart3").getContext("2d");
-
-	var chart_js3_data = {{ chart_js3_data | tojson | safe }};
-	var myNewChart = new Chart(ctx).Bar(chart_js3_data);
 // // Chart4
 </script>
 {% endblock %}
