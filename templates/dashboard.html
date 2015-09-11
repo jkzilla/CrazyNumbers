@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>All About CrazyNumbers</h1>
+<h1>CrazyNumbers</h1>
 <h4>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h4>
 
 <canvas id="chart3" width="10000" height="auto"></canvas>
@@ -65,18 +65,18 @@
 	console.log(numberDict)
 // Width and barHeight 
 	var height = 500,
-	width = 200,
-	barHeight = 30,
-	barOffset = 20;
+	width = 500,
 
-	var x = d3.scale.linear()
-		.domain([0, d3.max(numberArray)])
-		.range([0, width]);
+	var x = 
+// In Chart 1, we use the keys of the dict as labels, and the values as the freq/bar height
+	var y = d3.scale.linear()
+		.range([height, 0]);
+		.domain([0, d3.max(data, function(d) { return d.value; })]
 
-	// select the chart container using class selector
+	// select the chart container using id selector
 	var chart = d3.select("#chart1")
 		.attr("width", width)
-		.attr("height", barHeight * numberArray.length);
+		.attr("height", height);
 
 	// initiate data join.
 	var bar =  chart.selectAll("#chart1")
@@ -85,6 +85,7 @@
 		.enter().append("#chart1")
 		.attr("transform", function(d, i) { return "translate(0," + barHeight + ")"; });
 
+	
 	bar.append("rect")
 		.attr("width", x)
 		.attr("height", barHeight - 1);
