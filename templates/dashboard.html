@@ -10,7 +10,6 @@
 <svg id="chart2" width="500" height="200"></svg>
 <canvas id="chart3" width="750" height="auto"></canvas>
 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 	
 // Chart1
@@ -30,22 +29,27 @@
 	function makeDict(numberArray){
 		numberDict = {},
 		i=0;
-		console.log(numberArray)
+		// console.log(numberArray)
 
 		for (i=0; i < 300; i++) {
 			var numberItem = numberArray[i];
-			numberDict[numberItem] = numberDict[numberItem] || 0;
-			numberDict[numberItem]++;
+			if (!(numberItem in numberDict)){
+				console.log(numberItem)
+				numberDict.numberItem = 1;
+				}
+			else {
+				numberDict[numberItem] = (numberDict[numberItem] || 0) + 1;
 			}
-		return numberDict
+		return numberDict;
 		}
+	}
 // Here we call the makeDict function
 	makeDict(numberArray)
-	// console.log(numberDict)
+	console.log(numberDict)
 // Width and barHeight 
-	var height = 200,
-	width = 400,
-	barWidth = 30,
+	var height = 500,
+	width = 200,
+	barHeight = 30,
 	barOffset = 20;
 
 	var x = d3.scale.linear()
