@@ -5,6 +5,7 @@
 <h4>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h4>
 
 <canvas id="chart3" width="10000" height="auto"></canvas>
+<canvas id="chart4" width="1000" height="auto"></canvas>
 
 <svg id="chart1"> 
 
@@ -18,7 +19,15 @@
 	var ctx = document.getElementById("chart3").getContext("2d");
 
 	var chart_js3_data = {{ chart_js3_data | tojson | safe }};
-	var myNewChart = new Chart(ctx).Bar(chart_js3_data);
+	var myNewChart = new Chart(ctx).Line(chart_js3_data);
+// Chart 4
+
+	var ctx = document.getElementById("chart4").getContext("2d");
+
+	var chart_js3_data = {{ chart_js3_data | tojson | safe }};
+	var myNewChart = new Chart(ctx).Pie(chart_js3_data);
+
+
 // Chart1
 // This dateTimeArray holds date and time information in the d3 UTC time format. 
 	var dateTimeArray = [];
@@ -34,21 +43,22 @@
 	// console.log(numberArray);
 // numberDict holds the frequency that each number appears in the numberArray object.
 	function makeDict(numberArray){
-		numberDict = {},
-		i=0;
+		numberDict = {};
+		
+
 		// console.log(numberArray)
 
-		for (i=0; i < 300; i++) {
-			var numberItem = numberArray[i];
-			if (!(numberItem in numberDict)){
-				console.log(numberItem)
-				numberDict.numberItem = 1;
+		for (var k=0; k < 300; k++) {
+			if (!(numberArray[k] in numberDict)){
+				console.log(numberArray[k]);
+				numberDict[numberArray[k]] = 1;
 				}
 			else {
-				numberDict[numberItem] = (numberDict[numberItem] || 0) + 1;
+				numberDict[numberArray[k]] = (numberDict[numberArray[k]] || 0) + 1;
+				console.log(numberArray[k]);
 			}
-		return numberDict;
 		}
+		return numberDict;
 	}
 // Here we call the makeDict function
 	makeDict(numberArray)
