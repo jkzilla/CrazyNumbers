@@ -4,24 +4,30 @@
 }
 
 /*chart1 css*/
-#chart1 svg {
+
+div#chart1 {
+  background-color: gray;
+}
+div#chart1 svg {
 	font: 10px;
-	background-color: #c8ccc1;
+	background-color: white;
 	text-align: right;
 	padding: 5px;
 	margin: 1px;
 	color: white;
 }
 
-#chart1 rect {
-  fill: #c8ccc1;
+.axis1 path, axis1, line {
+  fill:none;
+  stroke: black;
+  shape-rendering: crispEdges;
 }
 
-#chart1 text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: end;
+.axis1 text {
+  font-family: sans-serif;
+  font-size: 11px;
 }
+
 
 /*chart2 css*/
 .axis path, .axis line {

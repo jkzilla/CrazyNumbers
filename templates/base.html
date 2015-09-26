@@ -16,6 +16,9 @@
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<!-- Link to D3 -->
     <script src="http://d3js.org/d3.v2.js"></script>
+   	<!-- Link to Modernizr - checking for current browser compatibility for d3 -->
+ 	<script src='js/modernizr.js'></script>
+
     <!-- Link to Charts.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.js"></script>
 
@@ -32,6 +35,13 @@
 	<!-- CrazyNumbers Dashboard goes here -->
 	{% endblock %}
 </div>
+  <script type="text/javascript">
+  Modernizr.load({
+    test: Modernizr.svg && Modernizr.inlinesvg, 
+    yep: [ 'js/d3.v3.min.js',
+        'js/script.js']
+  });
+  </script>
 
 </body>
 </html>

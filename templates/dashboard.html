@@ -8,13 +8,13 @@
 <div class="container">
 <h4>Welcome to the dashboard, and check out all the information about the numbers in the analysis below.</h4>
 </div>
-<div class="container">
+<div class="container-fluid">
 	<div class="chart3">
 	<canvas id="chart3" width="10000" height="auto"></canvas>
 	</div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 	<div class="chart4">
 	<canvas id="chart4" width="1000" height="auto"></canvas>
 	</div>
@@ -46,49 +46,48 @@
 	var myNewChart = new Chart(ctx).Line(chart_js3_data);
 
 
-// // Chart1
-// // This dateTimeArray holds date and time information in the d3 UTC time format. 
-// 	var dateTimeArray = [];
+// Chart1
+// This dateTimeArray holds date and time information in the d3 UTC time format. 
+	var dateTimeArray = [];
 // // This numberArray holds all 300 of our integers.
-// 	var numberArray = {{ number }};
+	var numberArray = {{ number }};
 // // Here we pass date_time as an array to the frontend Javascript object and save it in a d3 time format.
-// 	{% for item in date_time %}
-// 	var dateTime = new Date({{ item|safe }});
-// 	var isoDateTime = d3.time.format.utc(dateTime);
-// 	dateTimeArray.push(isoDateTime);
-// 	{% endfor %}
+	{% for item in date_time %}
+	var dateTime = new Date({{ item|safe }});
+	var isoDateTime = d3.time.format.utc(dateTime);
+	dateTimeArray.push(isoDateTime);
+	{% endfor %}
 // // numberDict holds the frequency that each number appears in the numberArray object.
 	
-// 	function makeDict(numberArray){
-// 		numberDict = {};
-// 		for (var k=0; k < 300; k++) {
-// 			if (!(numberArray[k] in numberDict)){
-// 				console.log(numberArray[k]);
-// 				numberDict[numberArray[k]] = 1;
-// 				}
-// 			else {
-// 				numberDict[numberArray[k]] = (numberDict[numberArray[k]] || 0) + 1;
-// 				console.log(numberArray[k]);
-// 			}
-// 		}
-// 		return numberDict;
-// 	}
+	function makeDict(numberArray){
+		numberDict = {};
+		for (var k=0; k < 300; k++) {
+			if (!(numberArray[k] in numberDict)){
+				console.log(numberArray[k]);
+				numberDict[numberArray[k]] = 1;
+				}
+			else {
+				numberDict[numberArray[k]] = (numberDict[numberArray[k]] || 0) + 1;
+				console.log(numberArray[k]);
+			}
+		}
+		return numberDict;
+	}
 
-// // Here we call the makeDict function
+// Here we call the makeDict function
 	
-// 	makeDict(numberArray)
-// 	console.log(numberDict)
+	makeDict(numberArray)
+	console.log(numberDict)
 
 // // Width and barHeight 
 
-// 	var height = 500,
-// 	width = 500;
+	var height = 500,
+	var width = 500;
 
-// 	var x = 
 // // In Chart 1, we use the keys of the dict as labels, and the values as the freq/bar height
-// 	var y = d3.scale.linear()
-// 		.range([height, 0]);
-// 		.domain([0, d3.max(data, function(d) { return d.value; })]
+	var y = d3.scale.linear()
+		.range([height, 0]);
+		.domain([0, d3.max(data, function(d) { return d.value; })]
 
 // 	// select the chart container using id selector
 // 	var chart = d3.select("#chart1")
