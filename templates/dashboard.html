@@ -79,38 +79,42 @@
 	makeDict(numberArray)
 	console.log(numberDict)
 
-// // Width and barHeight 
+// // Width and barHeight, padding 
 
 	var height = 500,
 	var width = 500;
+	var padding = 25;
 
-// // In Chart 1, we use the keys of the dict as labels, and the values as the freq/bar height
+// Array of values
+	var datasetCrazyNumbers = numberArray
+
+// // Configuring x and y functions
 	var y = d3.scale.linear()
 		.range([height, 0]);
 		.domain([0, d3.max(data, function(d) { return d.value; })]
 
-// 	// select the chart container using id selector
-// 	var chart = d3.select("#chart1")
-// 		.attr("width", width)
-// 		.attr("height", height);
+	// select the chart container using id selector
+	var chart = d3.select("#chart1")
+		.attr("width", width)
+		.attr("height", height);
 
-// 	// initiate data join.
-// 	var bar =  chart.selectAll("#chart1")
-// 		.selectAll("#chart1")
-// 			.data(numberArray)
-// 		.enter().append("#chart1")
-// 		.attr("transform", function(d, i) { return "translate(0," + barHeight + ")"; });
+	// initiate data join.
+	var bar =  chart.selectAll("#chart1")
+		.selectAll("#chart1")
+			.data(numberArray)
+		.enter().append("#chart1")
+		.attr("transform", function(d, i) { return "translate(0," + barHeight + ")"; });
 
 	
-// 	bar.append("rect")
-// 		.attr("width", x)
-// 		.attr("height", barHeight - 1);
+	bar.append("rect")
+		.attr("width", x)
+		.attr("height", barHeight - 1);
 
-// 	bar.append("text")
-// 		.attr("x", function(d) { return x(d) - 3; })
-// 		.attr("y", barHeight/2)
-// 		.attr("dy", ".35em")
-// 		.text(function(d) { return d; });
+	bar.append("text")
+		.attr("x", function(d) { return x(d) - 3; })
+		.attr("y", barHeight/2)
+		.attr("dy", ".35em")
+		.text(function(d) { return d; });
 
 // // // Chart2
 // InitChart();
